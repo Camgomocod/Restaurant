@@ -66,3 +66,5 @@
 - *Procesamiento de datos:* Procesa los datos recibidos de la capa de presentación antes de enviarlos a la capa de acceso a datos, o recibir datos de la capa de acceso a datos para pasarlos a la capa de presentación.
 - *Comunicación entre la UI y la base de datos:* Recibe solicitudes de la capa de presentación, aplicando las reglas de negocio necesarias, y luego envía solicitudes en la capa de acceso a datos.
 
+### Paleta de colores 
+https://coolors.co/4c6085-39a0ed-36f1cd-13c4a3-32322c
