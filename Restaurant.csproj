@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\Button.cs" />
+    <Compile Include="Utilities\RelayCommand.cs" />
+    <Compile Include="Utilities\ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,6 +66,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BusinessLogic\Interfaces\IAuthService.cs" />
+    <Compile Include="BusinessLogic\Interfaces\IReportService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\CustomerService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\HomeService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\OrdersService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\ProductsService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\ReportsService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\SettingService.cs" />
+    <Compile Include="BusinessLogic\Services\Login\AuthService.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -75,7 +87,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\Styles\Colors.xaml">
+    <Page Include="Presentation\Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Styles\Image.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Styles\Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Styles\Text.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,6 +126,14 @@
     <Page Include="Presentation\View\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utilities\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Utilities\DataTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -157,12 +189,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BusinessLogic\Interfaces\" />
-    <Folder Include="BusinessLogic\Services\" />
+    <Folder Include="BusinessLogic\Services\User\" />
     <Folder Include="DataAccess\Entities\" />
     <Folder Include="DataAccess\Repositories\" />
     <Folder Include="Tests\" />
-    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\Background.jpg" />
