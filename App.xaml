@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="/Presentation/Styles/Button.xaml"/>
                 <ResourceDictionary Source="/Presentation/Styles/Image.xaml"/>
                 <ResourceDictionary Source="/Presentation/Styles/Page.xaml"/>
-                <ResourceDictionary Source="/Presentation/Styles/Text.xaml"
+                <ResourceDictionary Source="/Presentation/Styles/Text.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
