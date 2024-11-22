@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.DataAccess.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Restaurant.Presentation
     /// </summary>
     public partial class LoginForm : Window
     {
+        DatabaseContext conn = new DatabaseContext();
         public LoginForm()
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace Restaurant.Presentation
         {
             WindowState = WindowState.Minimized;
         }
+
     }
 }
 
