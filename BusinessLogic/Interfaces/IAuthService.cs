@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Restaurant.BusinessLogic.Interfaces
+﻿namespace Restaurant.BusinessLogic.Interfaces
 {
     public interface IAuthService
     {
