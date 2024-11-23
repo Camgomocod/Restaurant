@@ -67,7 +67,7 @@ namespace Restaurant.Presentation
 
         }
 
-        private void TextBloc_Registrarse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) 
+        private void TextBlock_Registrarse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) 
         {
             var registerForm = new RegisterForm();
             registerForm.Show();

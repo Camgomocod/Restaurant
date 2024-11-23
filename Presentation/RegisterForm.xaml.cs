@@ -23,5 +23,24 @@ namespace Restaurant.Presentation
         {
             InitializeComponent();
         }
+
+        private void WindowMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        // Hay que ver que no se cierren las dos ventanas cuando se presiona el botón
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
     }
 }
