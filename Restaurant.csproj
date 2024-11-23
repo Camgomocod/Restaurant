@@ -108,6 +108,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
+    <Compile Include="DataAccess\Repositories\UserRepository.cs" />
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />

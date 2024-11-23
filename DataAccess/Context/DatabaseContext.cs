@@ -12,8 +12,8 @@ namespace Restaurant.DataAccess.Context
         // Estos valores deberan ser cambiados segun la estructura
         // de la base de datos de la maquina local
         private string connectionString;
-        private string usuario = "labbdd2";
-        private string contraseña = "labbdd2"; 
+        private string usuario = "bdd2";
+        private string contraseña = "bdd2"; 
         private string host = "localhost";
         private int puerto = 1521;
         private string servicio = "xe";
