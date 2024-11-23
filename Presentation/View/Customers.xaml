@@ -16,6 +16,7 @@
                 <ImageBrush ImageSource="/Presentation/Resources/Images/customer_page.png"
                             Stretch="None"/>
             </Border.Background>
+            <TextBlock HorizontalAlignment="Left" Height="27" Margin="64,191,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="280"/>
         </Border>
 
         <TextBlock Text="Nombre de Usuario: "
@@ -24,8 +25,8 @@
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"
-                   Margin="70,138,0,0" />
-        
+                   Margin="57,103,0,0" />
+
         <TextBlock Text="{Binding CustomerID}"
                    Foreground="{StaticResource BrushNonBlue}"
                    FontSize="12"

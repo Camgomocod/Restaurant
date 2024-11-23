@@ -4,24 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Restaurant.DataAccess.Repositories;
 
 namespace Restaurant.BusinessLogic.Services.Login
 {
-    internal class AuthService : IAuthService
+    internal class AuthService : UserRepository
     {
-        public bool IsAuthenticade()
+        private readonly UserRepository _userRepository;
+
+        public AuthService(UserRepository userRepository)
         {
-            throw new NotImplementedException();
+            _userRepository = userRepository;
         }
 
-        public bool Login(string username, string password)
+        public bool Authenticate(string correo, string password)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Logout()
-        {
-            throw new NotImplementedException();
+            var user = _userRepository.ValidarCredenciales(correo, password);
+            return user != null;
         }
     }
 }

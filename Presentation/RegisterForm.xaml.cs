@@ -10,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Restaurant.Presentation.View
+namespace Restaurant.Presentation
 {
     /// <summary>
-    /// Lógica de interacción para Customers.xaml
+    /// Lógica de interacción para RegisterForm.xaml
     /// </summary>
-    public partial class Customers : UserControl
+    public partial class RegisterForm : Window
     {
-        public Customers()
+        public RegisterForm()
         {
             InitializeComponent();
         }
-
     }
 }

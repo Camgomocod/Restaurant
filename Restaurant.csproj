@@ -113,6 +113,9 @@
     <Compile Include="DataAccess\Entities\Payment.cs" />
     <Compile Include="DataAccess\Entities\User.cs" />
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
+    <Compile Include="Presentation\RegisterForm.xaml.cs">
+      <DependentUpon>RegisterForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />
@@ -124,7 +127,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BusinessLogic\Interfaces\IAuthService.cs" />
     <Compile Include="BusinessLogic\Interfaces\IReportService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\CustomerService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\HomeService.cs" />
@@ -142,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\LoginForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\RegisterForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
