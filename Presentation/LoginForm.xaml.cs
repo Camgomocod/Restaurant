@@ -47,7 +47,7 @@ namespace Restaurant.Presentation
             WindowState = WindowState.Minimized;
         }
 
-        private void BtnLogin(object sender, RoutedEventArgs e)
+        private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             string correo = txtUser.Text;
             string password = txtPassword.ToString();

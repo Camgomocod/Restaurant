@@ -185,7 +185,7 @@
                             FontSize="12"
                             FontWeight="Bold"
                             Cursor="Hand"
-                            Click="BtnMinimize_Click"
+                            Click="BtnLogin_Click"
                             Margin="0,30,0,0">
                         <Button.Style>
                             <Style TargetType="Button">
