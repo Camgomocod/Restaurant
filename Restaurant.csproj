@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -107,11 +107,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessLogic\DTOS\ReporteSemanalDTO.cs" />
+    <Compile Include="BusinessLogic\Interfaces\iAdminService.cs" />
+    <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Entities\Dish.cs" />
     <Compile Include="DataAccess\Entities\Order.cs" />
     <Compile Include="DataAccess\Entities\Payment.cs" />
     <Compile Include="DataAccess\Entities\User.cs" />
+    <Compile Include="DataAccess\Repositories\AdminRepository.cs" />
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
     <Compile Include="Presentation\RegisterForm.xaml.cs">
       <DependentUpon>RegisterForm.xaml</DependentUpon>

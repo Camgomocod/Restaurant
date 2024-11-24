@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Data;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using Restaurant.DataAccess.Context;
 using Restaurant.DataAccess.Entities;
