@@ -118,7 +118,7 @@ namespace Restaurant.DataAccess.Repositories
             }
         }
 
-        public User ValidarCredenciales(string correoElectronico, string contrasena)
+        public void ValidarCredenciales(User user)
         {
             try
             {
@@ -130,31 +130,18 @@ namespace Restaurant.DataAccess.Repositories
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Parámetros del procedimiento almacenado
-                    command.Parameters.Add("p_correo_electronico", OracleDbType.Varchar2).Value = correoElectronico;
-                    command.Parameters.Add("p_contrasena", OracleDbType.Varchar2).Value = contrasena;
+                    command.Parameters.Add("p_correo_electronico", OracleDbType.Varchar2).Value = user.CorreoElectronico;
+                    command.Parameters.Add("p_contrasena", OracleDbType.Varchar2).Value = user.Contrasena;
 
                     // Parámetro de salida
                     command.Parameters.Add("p_resultado", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
 
-                    // Ejecutar el comando y leer los resultados
+                    // Ejecutar el comando para validar que el usuario existe
                     using (var reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (!reader.Read())
                         {
-                            return new User
-                            {
-                                IdUsuario = Convert.ToInt32(reader["id_usuario"]),
-                                Nombre = reader["nombre"].ToString(),
-                                CorreoElectronico = reader["correo_electronico"].ToString(),
-                                Contrasena = reader["contrasena"].ToString(),
-                                Direccion = reader["direccion"].ToString(),
-                                Telefono = reader["telefono"].ToString()
-                            };
-                        }
-                        else
-                        {
-                            // Usuario o contraseña incorrectos
-                            return null;
+                            throw new Exception("Usuario o contraseña incorrectos.");
                         }
                     }
                 }
@@ -168,6 +155,7 @@ namespace Restaurant.DataAccess.Repositories
                 conn.cerrarConexion();
             }
         }
+
 
         #endregion
     }

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Restaurant.DataAccess.Repositories;
+using Restaurant.DataAccess.Entities;
+using System.Net.Http.Headers;
 
 namespace Restaurant.BusinessLogic.Services.Login
 {
@@ -17,10 +19,30 @@ namespace Restaurant.BusinessLogic.Services.Login
             _userRepository = userRepository;
         }
 
-        public bool Authenticate(string correo, string password)
+        public bool Authenticate(User user)
         {
-            var user = _userRepository.ValidarCredenciales(correo, password);
-            return user != null;
+            try
+            {
+                _userRepository.ValidarCredenciales(user);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool RegisterUser(User user)
+        {
+            try
+            {
+                _userRepository.InsertarUsuario(user);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

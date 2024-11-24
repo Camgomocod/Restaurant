@@ -1,19 +1,9 @@
-﻿using Restaurant.DataAccess.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Restaurant.DataAccess.Repositories;
 using Restaurant.BusinessLogic.Services.Login;
+using Restaurant.DataAccess.Entities;
 
 namespace Restaurant.Presentation
 {
@@ -23,11 +13,15 @@ namespace Restaurant.Presentation
     public partial class LoginForm : Window
     {
         private readonly AuthService _authService;
-        DatabaseContext conn = new DatabaseContext();
-        public LoginForm()
+
+        public LoginForm() : this(new AuthService(new UserRepository())) { }
+
+        internal LoginForm(AuthService authService)
         {
             InitializeComponent();
+            _authService = authService ?? throw new ArgumentNullException(nameof(authService));
         }
+
 
         private void WindowMouseDown(object sender, MouseEventArgs e)
         {
@@ -49,28 +43,42 @@ namespace Restaurant.Presentation
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string correo = txtUser.Text;
-            string password = txtPassword.ToString();
-
-            bool isAuthenticated = _authService.Authenticate(correo, password);
-            if (isAuthenticated) 
-            { 
-                MessageBox.Show("¡ Inicio de sesión exitoso", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                var admindForm = new AdminForm();
-                admindForm.Show();
-                this.Hide();
-            }
-            else
+            try
             {
-                MessageBox.Show("Correo electrónico o contraseña invalido", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                if (string.IsNullOrWhiteSpace(txtUser.Text) ||
+                    string.IsNullOrWhiteSpace(txtPassword.Password))
+                {
+                    MessageBox.Show("Todos los campos son obligatorios.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+                var usuario = new User
+                {
+                    CorreoElectronico = txtUser.Text,
+                    Contrasena = txtPassword.Password,
+                };
 
+                bool isAuth = _authService.Authenticate(usuario);
+                if (isAuth)
+                {
+                    MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Error al inciar sesión intente de nuevo, {usuario.CorreoElectronico}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error : {ex.Message}");
+            }
         }
 
         private void TextBlock_Registrarse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) 
         {
             var registerForm = new RegisterForm();
             registerForm.Show();
+            this.Close();
         }
     }
 }

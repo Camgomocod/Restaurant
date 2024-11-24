@@ -9,7 +9,8 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
-        MouseDown="WindowMouseDown">
+        MouseDown="WindowMouseDown"
+        WindowStartupLocation="CenterScreen">
     <Border CornerRadius="12">
         <Border.Background>
             <ImageBrush ImageSource="/Presentation/Resources/Images/Background.jpg"
@@ -139,7 +140,7 @@
                                FontFamily="Monserrat"
                                Margin="0,20,0,0"/>
 
-                    <TextBox x:Name="txtUser"
+                    <TextBox x:Name="txtName"
                             FontSize="13"
                             FontWeight="Medium"
                             FontFamily="Monserrat"
@@ -177,7 +178,7 @@
                                FontFamily="Monserrat"
                                Margin="0,20,0,0"/>
 
-                    <TextBox x:Name="txtPassword"
+                    <PasswordBox x:Name="txtPassword"
                         FontSize="13"
                         FontWeight="Medium"
                         FontFamily="Monserrat"
@@ -187,7 +188,7 @@
                         BorderBrush="{StaticResource BrushDarkUmber}"
                         BorderThickness="0,0,0,3"
                         Margin="0,5,0,0">
-                    </TextBox>
+                    </PasswordBox>
                     <TextBlock Text="Dirección:"
                                Foreground="{StaticResource BrushDarkUmber}"
                                FontWeight="Medium"
@@ -225,6 +226,39 @@
                             BorderThickness="0,0,0,3"
                             Margin="0,5,0,0">
                     </TextBox>
+
+                    <Button x:Name="btnRegister"
+                            BorderThickness="0"
+                            Content="Registrarse"
+                            Foreground="#32322C"
+                            Grid.Column="1"
+                            FontSize="12"
+                            FontWeight="Bold"
+                            Cursor="Hand"
+                            Click="BtnRegister_Click"
+                            Margin="0,30,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="100" Height="25"
+                                        CornerRadius="8"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Border>
