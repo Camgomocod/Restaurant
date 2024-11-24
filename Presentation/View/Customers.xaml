@@ -50,7 +50,7 @@
 
             <Button x:Name="btnSearchUser"
                     BorderThickness="0"
-                    Content="Registrarse"
+                    Content="Buscar"
                     Foreground="#32322C"
                     Grid.Column="1"
                     FontSize="12"

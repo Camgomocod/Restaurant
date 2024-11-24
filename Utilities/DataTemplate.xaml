@@ -2,28 +2,4 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:vm="clr-namespace:Restaurant.BusinessLogic.Services"
                     xmlns:view="clr-namespace:Restaurant.Presentation.View">
-    <DataTemplate DataType="{x:Type vm:HomeService}">
-        <view:Home/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:CustomerService}">
-        <view:Customers/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:ProductsService}">
-        <view:Products/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:OrdersService}">
-        <view:Orders/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:ReportsService}">
-        <view:Reports/>
-    </DataTemplate>
-
-    <DataTemplate DataType="{x:Type vm:SettingService}">
-        <view:Settings/>
-    </DataTemplate>
-
 </ResourceDictionary>

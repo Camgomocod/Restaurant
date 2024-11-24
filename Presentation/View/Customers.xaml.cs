@@ -20,6 +20,7 @@ namespace Restaurant.Presentation.View
     /// </summary>
     public partial class Customers : UserControl
     {
+        public float Number = 200;
         public Customers()
         {
             InitializeComponent();
