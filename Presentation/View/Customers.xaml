@@ -7,32 +7,141 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="622"
              Style="{StaticResource Page_Style}">
-    <UserControl.DataContext>
-        <vm:CustomerService/>
-    </UserControl.DataContext>
+
+    <UserControl.Background>
+        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+            <GradientStop Color="{StaticResource Turquoise}" Offset="0"/>
+            <GradientStop Color= "{StaticResource CobaltBlue}" Offset="0.75"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
+
     <Grid Margin="15">
-        <Border CornerRadius="0,20,20,0">
-            <Border.Background>
-                <ImageBrush ImageSource="/Presentation/Resources/Images/customer_page.png"
-                            Stretch="None"/>
-            </Border.Background>
-            <TextBlock HorizontalAlignment="Left" Height="27" Margin="64,191,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="280"/>
-        </Border>
+        <StackPanel Width="380"
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    Margin="0,20,0,0">
 
-        <TextBlock Text="Nombre de Usuario: "
-                   Foreground="{StaticResource BrushMediterraneanBlue}"
-                   FontSize="12"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"
-                   Margin="57,103,0,0" />
+            <TextBlock Text="Buscar Usuario"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontSize="18"
+                       FontWeight="Medium"
+                       FontFamily="Monserrat"
+                       HorizontalAlignment="Center"/>
 
-        <TextBlock Text="{Binding CustomerID}"
-                   Foreground="{StaticResource BrushNonBlue}"
-                   FontSize="12"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"
-                   Margin="160,138,0,0"/>
+            <TextBlock Text="Número de telefono:"
+                       HorizontalAlignment="Center"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontWeight="Medium"
+                       FontSize="12"
+                       FontFamily="Monserrat"
+                       Margin="0,20,0,0"/>
+
+            <TextBox x:Name="txtName"
+                    FontSize="13"
+                    FontWeight="Medium"
+                    FontFamily="Monserrat"
+                    Background="FloralWhite"
+                    Foreground="{StaticResource BrushDarkUmber}"
+                    CaretBrush="{StaticResource BrushDarkUmber}"
+                    BorderBrush="{StaticResource BrushDarkUmber}"
+                    BorderThickness="0,0,0,3"
+                    Margin="60,5,60,0">
+            </TextBox>
+
+            <Button x:Name="btnSearchUser"
+                    BorderThickness="0"
+                    Content="Registrarse"
+                    Foreground="#32322C"
+                    Grid.Column="1"
+                    FontSize="12"
+                    FontWeight="Bold"
+                    Cursor="Hand"
+                    Click="BtnSearchUser_Click"
+                    Margin="0,10,0,0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="100" Height="25"
+                    CornerRadius="8"
+                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <TextBlock Text="Resultato"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontSize="18"
+                       FontWeight="Medium"
+                       FontFamily="Monserrat"
+                       HorizontalAlignment="Center"
+                       Margin="0,70,0,0"/>
+
+            <TextBlock Text="Nombre:"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontWeight="Medium"
+                       FontSize="12"
+                       FontFamily="Monserrat"
+                       Margin="30,0,0,0"/>
+            <Grid HorizontalAlignment="Left"
+                  Margin="30,10,0,0"
+                  Width="320"
+                  Height="33">
+                <Rectangle Height="33"
+                           Stroke="Black" 
+                           HorizontalAlignment="Left"
+                           Fill="{StaticResource BrushCobaltBlue}"
+                           Width="320"/>
+                <!--hacer el binding con la variable correspondiente, en lugar del text-->
+                <TextBlock Text="200"
+                           Foreground="{StaticResource BrushNonBlue}"
+                           FontSize="12"
+                           VerticalAlignment="Center"
+                           Padding="5,0,0,0"
+                           FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"/>
+            </Grid>
+
+            <TextBlock Text="Número de compras:"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontWeight="Medium"
+                       FontSize="12"
+                       FontFamily="Monserrat"
+                       Margin="30,10,0,0"/>
+            <Grid HorizontalAlignment="Left" 
+                  Margin="30,10,0,0" 
+                  Width="320" 
+                  Height="33">
+                <Rectangle Height="33" 
+                           Stroke="Black" 
+                           HorizontalAlignment="Left"
+                           Fill="{StaticResource BrushCobaltBlue}"
+                           Width="320"/>
+                <TextBlock Text="200"
+                           Foreground="{StaticResource BrushNonBlue}"
+                           FontSize="12"
+                           VerticalAlignment="Center"
+                           Padding="5,0,0,0"
+                           FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"/>
+            </Grid>
+
+            <Image Source="/Presentation/Resources/Images/search-user.png"
+                   Width="60"
+                   Height="60"
+                   HorizontalAlignment="Center"
+                   Margin="0,120,0,0"/>
+
+        </StackPanel>
     </Grid>
 </UserControl>

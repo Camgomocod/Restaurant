@@ -25,5 +25,9 @@ namespace Restaurant.Presentation.View
             InitializeComponent();
         }
 
+        public void BtnSearchUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

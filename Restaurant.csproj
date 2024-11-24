@@ -278,22 +278,12 @@
     <Resource Include="Presentation\Resources\Images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Presentation\Resources\Images\customer_page.png" />
-    <Resource Include="Presentation\Resources\Images\home_page.png" />
     <Resource Include="Presentation\Resources\Images\img_customer.png" />
     <Resource Include="Presentation\Resources\Images\img_home.png" />
     <Resource Include="Presentation\Resources\Images\img_order.png" />
     <Resource Include="Presentation\Resources\Images\img_product.png" />
     <Resource Include="Presentation\Resources\Images\img_setting.png" />
     <Resource Include="Presentation\Resources\Images\img_shipment.png" />
-    <Resource Include="Presentation\Resources\Images\img_transaction.png" />
-    <Resource Include="Presentation\Resources\Images\order_page.png" />
-    <Resource Include="Presentation\Resources\Images\product_page.png" />
-    <Resource Include="Presentation\Resources\Images\setting_page.png" />
-    <Resource Include="Presentation\Resources\Images\shipment_page.png" />
-    <Resource Include="Presentation\Resources\Images\shutdown_def.png" />
-    <Resource Include="Presentation\Resources\Images\shutdown_mo.png" />
-    <Resource Include="Presentation\Resources\Images\transaction_page.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -306,6 +296,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\buscar-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\search-user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
