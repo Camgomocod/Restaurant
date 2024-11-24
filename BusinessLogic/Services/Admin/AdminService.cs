@@ -12,12 +12,18 @@ namespace Restaurant.BusinessLogic.Services
 {
     internal class AdminService : IAdminService
     {
+        #region Attributes
         private readonly DatabaseContext _dbContext;
+        private readonly AdminRepository _adminRepository;
+        #endregion
+        #region Operations
+        #region Connection
         public AdminService()
         {
             _dbContext = new DatabaseContext();
         }
-
+        #endregion
+        #region CalcularSubTotal
         /// <summary>
         /// Calcula el subtotal de un pedido sumando los subtotales de sus detalles.
         /// </summary>
@@ -58,7 +64,8 @@ namespace Restaurant.BusinessLogic.Services
             }
             return subtotal;
         }
-
+        #endregion
+        #region ReporteSemanal
         public async Task<List<ReporteSemanalDTO>> ObtenerReportesSemanales(DateTime fechaInicio, DateTime fechaFin)
         {
             var adminRepository = new AdminRepository();
@@ -79,7 +86,8 @@ namespace Restaurant.BusinessLogic.Services
             }
             return reportes;
         }
-
+        #endregion
+        #region ActualizarEstadoPedido
         /// <summary>
         /// Actualiza el estado de un pedido.
         /// </summary>
@@ -113,7 +121,8 @@ namespace Restaurant.BusinessLogic.Services
                 _dbContext.cerrarConexion();
             }
         }
-
+        #endregion
+        #region Insertar pago
         /// <summary>
         /// Inserta un nuevo pago asociado a un pedido.
         /// </summary>
@@ -151,6 +160,42 @@ namespace Restaurant.BusinessLogic.Services
                 _dbContext.cerrarConexion();
             }
         }
+        #endregion
+        #region ReporteMensual
+        /// <summary>
+        /// Obtiene los reportes mensuales en base a la fecha proporcionada.
+        /// </summary>
+        /// <param name="mes">Mes para el cual se requieren los reportes.</param>
+        /// <returns>Lista de objetos ReporteMensualDTO.</returns>
+        public async Task<List<ReporteMensualDTO>> ObtenerReportesMensuales(DateTime mes)
+        {
+            return await _adminRepository.ObtenerReportesMensuales(mes);
+        }
+        #endregion
+        #region ConsultarPedidosPorUsuario
+        public async Task<List<PedidoDTO>> ConsultarPedidosPorUsuario(int idUsuario)
+        {
+            return await _adminRepository.ConsultarPedidosPorUsuario(idUsuario);
+        } 
+        #endregion
+        #region ObtenerPedidosPendientes
+        public async Task<List<PedidoDTO>> ObtenerPedidosPendientes()
+        {
+            return await _adminRepository.ObtenerPedidosPendientes();
+        } 
+        #endregion
+        #region ObtenerDetallesPedido
+        /// <summary>
+        /// Obtiene los detalles de un pedido por su ID.
+        /// </summary>
+        /// <param name="idPedido">ID del pedido.</param>
+        /// <returns>Lista de objetos DetallePedidoDTO.</returns>
+        public async Task<List<DetallePedidoDTO>> ObtenerDetallesPedido(int idPedido)
+        {
+            return await _adminRepository.ObtenerDetallesPedido(idPedido);
+        } 
+        #endregion
+        #endregion
     }
 
 }

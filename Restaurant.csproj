@@ -107,6 +107,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BusinessLogic\DTOS\PedidoDTO.cs" />
+    <Compile Include="BusinessLogic\DTOS\DetallesPedidoDTO.cs" />
+    <Compile Include="BusinessLogic\DTOS\ReporteMensualDTO.cs" />
     <Compile Include="BusinessLogic\DTOS\ReporteSemanalDTO.cs" />
     <Compile Include="BusinessLogic\Interfaces\iAdminService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
