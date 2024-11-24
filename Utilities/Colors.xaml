@@ -12,4 +12,5 @@
     <Color x:Key="NonBlue">#36F1CD</Color>
     <Color x:Key="Turquoise">#13C4A3</Color>
     <Color x:Key="DarkUmber">#32322C</Color>
+    <Color x:Key="Charcoal">#3e434a</Color>
 </ResourceDictionary>

@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!-- Define rutas como cadenas -->
+    <sys:String x:Key="ImagesPath">Presentation/Resources/Images</sys:String>
+    <sys:String x:Key="FontPath">Presentation/Resources/Fonts</sys:String>
+</ResourceDictionary>

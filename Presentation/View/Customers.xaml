@@ -3,10 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Restaurant.Presentation.View"
+             xmlns:vm="clr-namespace:Restaurant.BusinessLogic.Services"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="600" d:DesignWidth="622"
+             Style="{StaticResource Page_Style}">
+    <UserControl.DataContext>
+        <vm:CustomerService/>
+    </UserControl.DataContext>
+    <Grid Margin="15">
+        <Border CornerRadius="0,20,20,0">
+            <Border.Background>
+                <ImageBrush ImageSource="/Presentation/Resources/Images/customer_page.png"
+                            Stretch="None"/>
+            </Border.Background>
+            <TextBlock HorizontalAlignment="Left" Height="27" Margin="64,191,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="280"/>
+        </Border>
+
+        <TextBlock Text="Nombre de Usuario: "
+                   Foreground="{StaticResource BrushMediterraneanBlue}"
+                   FontSize="12"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"
+                   Margin="57,103,0,0" />
+
+        <TextBlock Text="{Binding CustomerID}"
+                   Foreground="{StaticResource BrushNonBlue}"
+                   FontSize="12"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontFamily="/Presentation/Resources/Fonts/#Rubik Medium"
+                   Margin="160,138,0,0"/>
     </Grid>
 </UserControl>

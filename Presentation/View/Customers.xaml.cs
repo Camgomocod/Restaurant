@@ -24,5 +24,6 @@ namespace Restaurant.Presentation.View
         {
             InitializeComponent();
         }
+
     }
 }

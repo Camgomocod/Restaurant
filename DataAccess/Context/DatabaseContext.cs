@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 
 namespace Restaurant.DataAccess.Context
@@ -11,13 +7,15 @@ namespace Restaurant.DataAccess.Context
     {
         // Estos valores deberan ser cambiados segun la estructura
         // de la base de datos de la maquina local
+        #region Attributes
         private string connectionString;
         private string usuario = "bdd2";
-        private string contraseña = "bdd2"; 
+        private string contraseña = "bdd2";
         private string host = "localhost";
         private int puerto = 1521;
         private string servicio = "xe";
-        public OracleConnection conn;
+        public OracleConnection conn; 
+        #endregion
 
         public DatabaseContext()
         {

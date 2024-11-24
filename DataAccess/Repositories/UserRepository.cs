@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Data;
-using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using Restaurant.DataAccess.Context;
+using Restaurant.DataAccess.Entities;
 
 namespace Restaurant.DataAccess.Repositories
 {
@@ -19,30 +15,8 @@ namespace Restaurant.DataAccess.Repositories
             conn = new DatabaseContext();
         }
 
-        #region Modelos
-        public class Usuario
-        {
-            public int IdUsuario { get; set; }
-            public string Nombre { get; set; }
-            public string CorreoElectronico { get; set; }
-            public string Contrasena { get; set; }
-            public string Direccion { get; set; }
-            public string Telefono { get; set; }
-            public string Rol { get; set; }
-        }
-
-        public class Pedido
-        {
-            public int IdPedido { get; set; }
-            public int IdUsuario { get; set; }
-            public string MetodoPago { get; set; }
-            public string Estado { get; set; }
-            public decimal Total { get; set; }
-        }
-        #endregion
-
         #region Implementacion de metodos (Paquete Usuarios)
-        public void InsertarUsuario(Usuario usuario)
+        public void InsertarUsuario(User usuario)
         {
             try
             {
@@ -74,7 +48,7 @@ namespace Restaurant.DataAccess.Repositories
             }
         }
 
-        public void ActualizarUsuario(Usuario usuario)
+        public void ActualizarUsuario(User usuario)
         {
             try
             {
@@ -85,7 +59,6 @@ namespace Restaurant.DataAccess.Repositories
                     command.CommandText = "pkg_Usuarios.actualizar_usuario";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.Add("p_id_usuario", OracleDbType.Int32).Value = usuario.IdUsuario;
                     command.Parameters.Add("p_nombre", OracleDbType.Varchar2).Value = usuario.Nombre;
                     command.Parameters.Add("p_correo_electronico", OracleDbType.Varchar2).Value = usuario.CorreoElectronico;
                     command.Parameters.Add("p_contrasena", OracleDbType.Varchar2).Value = usuario.Contrasena;
@@ -108,7 +81,7 @@ namespace Restaurant.DataAccess.Repositories
                 conn.cerrarConexion();
             }
         }
-        public void CrearPedido(Pedido pedido)
+        public void CrearPedido(Order pedido)
         {
             try
             {
@@ -123,6 +96,7 @@ namespace Restaurant.DataAccess.Repositories
                     command.Parameters.Add("p_metodo_pago", OracleDbType.Varchar2).Value = pedido.MetodoPago;
                     command.Parameters.Add("p_estado", OracleDbType.Varchar2).Value = pedido.Estado;
                     command.Parameters.Add("p_total", OracleDbType.Decimal).Value = pedido.Total;
+                    command.Parameters.Add("p_fecha_pedido", OracleDbType.Date).Value = pedido.FechaPedido;
 
                     command.ExecuteNonQuery();
                 }
@@ -138,6 +112,58 @@ namespace Restaurant.DataAccess.Repositories
                 conn.cerrarConexion();
             }
         }
+
+        public User ValidarCredenciales(string correoElectronico, string contrasena)
+        {
+            try
+            {
+                conn.abrirConexion();
+
+                using (var command = conn.GetConnection().CreateCommand())
+                {
+                    command.CommandText = "pkg_Usuarios.validar_usuario";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros del procedimiento almacenado
+                    command.Parameters.Add("p_correo_electronico", OracleDbType.Varchar2).Value = correoElectronico;
+                    command.Parameters.Add("p_contrasena", OracleDbType.Varchar2).Value = contrasena;
+
+                    // Parámetro de salida
+                    command.Parameters.Add("p_resultado", OracleDbType.RefCursor).Direction = ParameterDirection.Output;
+
+                    // Ejecutar el comando y leer los resultados
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new User
+                            {
+                                IdUsuario = Convert.ToInt32(reader["id_usuario"]),
+                                Nombre = reader["nombre"].ToString(),
+                                CorreoElectronico = reader["correo_electronico"].ToString(),
+                                Contrasena = reader["contrasena"].ToString(),
+                                Direccion = reader["direccion"].ToString(),
+                                Telefono = reader["telefono"].ToString()
+                            };
+                        }
+                        else
+                        {
+                            // Usuario o contraseña incorrectos
+                            return null;
+                        }
+                    }
+                }
+            }
+            catch (OracleException ex)
+            {
+                throw new Exception($"Error al validar credenciales: {ex.Message}", ex);
+            }
+            finally
+            {
+                conn.cerrarConexion();
+            }
+        }
+
         #endregion
     }
 }
