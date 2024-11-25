@@ -137,6 +137,12 @@
     <Compile Include="Presentation\View\Reports.xaml.cs">
       <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\View\User\Categories.xaml.cs">
+      <DependentUpon>Categories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\User\Dishes.xaml.cs">
+      <DependentUpon>Dishes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ViewModelBase.cs" />

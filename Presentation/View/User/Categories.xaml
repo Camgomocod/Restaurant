@@ -8,9 +8,6 @@
         Title="Categories" Height="450" Width="800" Background="{x:Null}"
         MouseDown="Window_MouseDown">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Presentation/Resources/Images/User/Background_app.jpg"/>
-        </Grid.Background>
         <Border CornerRadius="14" BorderThickness="2" Opacity="0.8" Margin="0,0,0,-16">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
