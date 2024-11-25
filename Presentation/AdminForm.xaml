@@ -12,7 +12,9 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Background="Transparent">
+        MouseDown="WindowMouseDown"
+        Background="Transparent"
+        >
 
     <Window.Resources>
         <!-- Estilo para los botones del menú -->
