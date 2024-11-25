@@ -151,6 +151,35 @@ namespace Restaurant.DataAccess.Repositories
             }
         }
 
+        public String obtenerRol(String correo)
+        {
+            try
+            {
+                conn.abrirConexion();
+
+                using (var command = conn.GetConnection().CreateCommand())
+                {
+                    command.CommandText = "SELECT pkg_usuarios.obtener_usuario_correo(:p_correo) FROM DUAL";
+                    command.Parameters.Add(new OracleParameter("p_correo_electronico", correo));
+
+                    object result = command.ExecuteScalar();
+                    if(result != null)
+                    {
+                        String rol = result.ToString();
+                        return rol;
+                    }
+                    return null;
+                }
+            }
+            catch (OracleException ex)
+            {
+                throw new Exception($"Error al validar credenciales: {ex.Message}", ex);
+            }
+            finally
+            {
+                conn.cerrarConexion();
+            }
+        }
 
         #endregion
     }
