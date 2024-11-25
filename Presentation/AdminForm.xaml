@@ -196,9 +196,41 @@
                             <TextBlock Text="Pedidos" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
                         </StackPanel>
                     </Button>
+					<Button x:Name="btnLogOutUser"
+                        BorderThickness="0"
+                        Content="Cerrar Sesión"
+                        Foreground="#32322C"
+                        Grid.Column="1"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Click="BtnLogOut_Click"
+                        Margin="0,320,0,0">
+						<Button.Style>
+							<Style TargetType="Button">
+								<Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+								<Style.Triggers>
+									<Trigger Property="IsMouseOver" Value="True">
+										<Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</Button.Style>
+
+						<Button.Template>
+							<ControlTemplate TargetType="Button">
+								<Border Width="100" Height="25"
+										CornerRadius="5"
+										Background="{TemplateBinding Background}">
+									<ContentPresenter VerticalAlignment="Center"
+													  HorizontalAlignment="Center"/>
+								</Border>
+							</ControlTemplate>
+						</Button.Template>
+					</Button>
                 </StackPanel>
             </Border>
-
+            
             <ContentControl x:Name="MainContentControl" Grid.Column="1" Margin="10">
             </ContentControl>
         </Grid>

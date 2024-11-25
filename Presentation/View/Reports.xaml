@@ -109,7 +109,7 @@
                         FontSize="12"
                         FontWeight="Bold"
                         Cursor="Hand"
-                        Click="BtnSemanalReport_Click"
+                        Click="BtnMonthReport_Click"
                         Margin="10,0,0,0">  
                     <Button.Style>
                         <Style TargetType="Button">

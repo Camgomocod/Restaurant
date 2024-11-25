@@ -30,5 +30,9 @@ namespace Restaurant.Presentation.View
 
         }
 
+        public void BtnMonthReport_Click(Object sender, RoutedEventArgs e) 
+        { 
+
+        }
     }
 }

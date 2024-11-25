@@ -57,5 +57,12 @@ namespace Restaurant.Presentation
         {
             MainContentControl.Content = new Orders();
         }
+
+        public void BtnLogOut_Click(object sender, RoutedEventArgs e)
+        {
+            var registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Close();
+        }
     }
 }
