@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Presentation\View\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
+	</Compile>
     <Compile Include="Presentation\View\User\Categories.xaml.cs">
       <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
@@ -295,8 +296,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\clipboard.png" />
-    <Resource Include="Presentation\Resources\Images\User\Background_app.jpg" />
   </ItemGroup>
+<ItemGroup>
+	<Resource Include="Presentation\Resources\Images\User\Background_app.jpg" />
+</ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\User\Categories\Bebidas.png" />
   </ItemGroup>
