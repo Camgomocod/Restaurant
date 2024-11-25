@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Restaurant.DataAccess.Repositories;
 using Restaurant.DataAccess.Entities;
 using System.Net.Http.Headers;
+using System.Diagnostics;
 
 namespace Restaurant.BusinessLogic.Services.Login
 {
@@ -34,14 +35,8 @@ namespace Restaurant.BusinessLogic.Services.Login
 
         public string user_type(User user)
         {
-            if (user.Rol == "cliente")
-            {
-                return "cliente";
-            }
-            else
-            {
-                return "administrador";
-            }
+            string rol = _userRepository.obtenerRol(user.CorreoElectronico);
+            return rol;
         }
 
         public bool RegisterUser(User user)

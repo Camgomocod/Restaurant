@@ -21,10 +21,6 @@ namespace Restaurant.Presentation
         {
             InitializeComponent();
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
-            /*
-            Categories viewCategories = new Categories();
-            viewCategories.Show();
-            this.Close();*/
         }
 
 
@@ -78,6 +74,7 @@ namespace Restaurant.Presentation
                             Categories viewCategories = new Categories();
                             MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                             viewCategories.Show();
+                            this.Close();
                             break;
                     }
                 }
