@@ -318,5 +318,8 @@
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\clipboard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\homeBackground.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
