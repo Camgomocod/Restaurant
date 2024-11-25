@@ -114,6 +114,7 @@
     <Compile Include="BusinessLogic\Interfaces\iAdminService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
+    <Compile Include="DataAccess\Entities\Category.cs" />
     <Compile Include="DataAccess\Entities\Dish.cs" />
     <Compile Include="DataAccess\Entities\Order.cs" />
     <Compile Include="DataAccess\Entities\Payment.cs" />
@@ -125,6 +126,8 @@
     </Compile>
     <Compile Include="Presentation\View\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
+    <Compile Include="Presentation\View\User\Categories.xaml.cs">
+      <DependentUpon>Categories.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
@@ -186,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\View\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\View\User\Categories.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,6 +258,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogic\Services\User\" />
+    <Folder Include="Presentation\Resources\Images\User\Dishes\" />
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
@@ -287,6 +295,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\clipboard.png" />
+    <Resource Include="Presentation\Resources\Images\User\Background_app.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Categories\Bebidas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Categories\Comidas_Rapidas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Categories\Almuerzo_infantil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Categories\Almuerzo_Ejecutivo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
