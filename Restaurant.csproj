@@ -114,6 +114,8 @@
     <Compile Include="BusinessLogic\Interfaces\iAdminService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
+    <Compile Include="DataAccess\Entities\Category.cs" />
+    <Compile Include="DataAccess\Entities\RolType.cs" />
     <Compile Include="DataAccess\Entities\Dish.cs" />
     <Compile Include="DataAccess\Entities\Order.cs" />
     <Compile Include="DataAccess\Entities\Payment.cs" />
@@ -131,9 +133,6 @@
     </Compile>
     <Compile Include="Presentation\View\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Reports.xaml.cs">
-      <DependentUpon>Reports.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
@@ -203,6 +202,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\View\Reports.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\View\User\Categories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\View\User\Dishes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -301,12 +308,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\clipboard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Presentation\Resources\Images\report.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Presentation\Resources\Images\homeBackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
