@@ -73,7 +73,10 @@ namespace Restaurant.Presentation.View.User
             // Verificar que la categoría no sea null y mostrar un MessageBox con su nombre
             if (category != null)
             {
-                MessageBox.Show($"Has seleccionado la categoría: {category.Nombre}", "Categoría Seleccionada", MessageBoxButton.OK, MessageBoxImage.Information);
+                Dishes dishes = Dishes.build(category.IdCategoriaPlato);
+                dishes.Show();
+                this.Close();
+                //MessageBox.Show($"Has seleccionado la categoría: {category.Nombre}", "Categoría Seleccionada", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

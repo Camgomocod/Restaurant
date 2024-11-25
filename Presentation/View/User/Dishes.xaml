@@ -84,7 +84,7 @@
                 <!-- Usamos Grid en lugar de Canvas para que el ScrollViewer se ajuste correctamente -->
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="10,20,23,23" Height="350">
                     <Grid Background="#FF6AAFE3">
-                        <ItemsControl ItemsSource="{Binding Categorias}">
+                        <ItemsControl ItemsSource="{Binding Platos}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <!-- Layout de los ítems con 2 columnas -->
@@ -109,7 +109,19 @@
                         </ItemsControl>
                     </Grid>
                 </ScrollViewer>
-                <TextBlock Foreground="#32322C" FontSize="25" FontFamily="Monserrat" Grid.Column="0" VerticalAlignment="Top" Margin="15,25,50,0" Grid.RowSpan="2" FontWeight="Bold" Height="34"><Run Language="es-co" Text="CATEGORIAS"/><LineBreak/><Run Language="es-co"/></TextBlock>
+                <TextBlock Foreground="#32322C" FontSize="25" FontFamily="Monserrat" Grid.Column="0" VerticalAlignment="Top" Margin="15,25,50,0" Grid.RowSpan="2" FontWeight="Bold" Height="34"><Run Language="es-es" Text="PLATOS"/><LineBreak/><Run/></TextBlock>
+                <Button x:Name="btnVolver_Dish" BorderThickness="0" Content="Volver" Foreground="#32322C" FontSize="12" FontWeight="Bold" Cursor="Hand" Click="BtnVolver_Click" Margin="668,5,23,387" Grid.Row="1" Width="50" Height="18">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
         </Border>
     </Grid>

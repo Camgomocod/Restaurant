@@ -29,13 +29,14 @@ namespace Restaurant.Presentation.View.User
             this.ResizeMode = ResizeMode.NoResize; // Deshabilita el cambio de tamaño
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
-            DataContext = this;
+            this.DataContext = this;
         }
 
-        public Dishes build(int IdCategoriaPlato)
+        public static Dishes build(int IdCategoriaPlato)
         {
+            Dishes dish = new Dishes();
             //TODO: se obtiene los platos por id categoria plato
-            Platos = new ObservableCollection<Dish>
+            dish.Platos = new ObservableCollection<Dish>
             {
                 new Dish
                 {
@@ -63,9 +64,11 @@ namespace Restaurant.Presentation.View.User
                 }
             };
 
-            // Asignar la lista como fuente de datos
             
-            return new Dishes();
+
+            // Asignar la lista como fuente de datos
+
+            return dish;
         }
 
         private void Category_Click(object sender, RoutedEventArgs e)
@@ -103,6 +106,12 @@ namespace Restaurant.Presentation.View.User
                 // Cerrar la ventana actual (ventana principal)
                 this.Close();
             }
+        }
+
+        private void BtnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            new Categories().Show();
+            this.Close();
         }
 
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)
