@@ -9,8 +9,8 @@ namespace Restaurant.DataAccess.Context
         // de la base de datos de la maquina local
         #region Attributes
         private string connectionString;
-        private string usuario = "bdd2";
-        private string contraseña = "bdd2";
+        private string usuario = "prueba";
+        private string contraseña = "oracle";
         private string host = "localhost";
         private int puerto = 1521;
         private string servicio = "xe";
