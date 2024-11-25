@@ -32,6 +32,18 @@ namespace Restaurant.BusinessLogic.Services.Login
             }
         }
 
+        public string user_type(User user)
+        {
+            if (user.Rol == "cliente")
+            {
+                return "cliente";
+            }
+            else
+            {
+                return "administrador";
+            }
+        }
+
         public bool RegisterUser(User user)
         {
             try
