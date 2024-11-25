@@ -114,6 +114,8 @@
     <Compile Include="BusinessLogic\Interfaces\iAdminService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
+    <Compile Include="DataAccess\Entities\Category.cs" />
+    <Compile Include="DataAccess\Entities\RolType.cs" />
     <Compile Include="DataAccess\Entities\Dish.cs" />
     <Compile Include="DataAccess\Entities\Order.cs" />
     <Compile Include="DataAccess\Entities\Payment.cs" />
@@ -122,6 +124,24 @@
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
     <Compile Include="Presentation\RegisterForm.xaml.cs">
       <DependentUpon>RegisterForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\Dishes.xaml.cs">
+      <DependentUpon>Dishes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\Orders.xaml.cs">
+      <DependentUpon>Orders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\Reports.xaml.cs">
+      <DependentUpon>Reports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\User\Categories.xaml.cs">
+      <DependentUpon>Categories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\User\Dishes.xaml.cs">
+      <DependentUpon>Dishes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
@@ -178,6 +198,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentation\View\Dishes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Presentation\View\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,15 +210,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\View\Products.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Presentation\View\Reports.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\View\Settings.xaml">
+    <Page Include="Presentation\View\User\Categories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\View\User\Dishes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,21 +244,6 @@
     </Compile>
     <Compile Include="Presentation\View\Customers.xaml.cs">
       <DependentUpon>Customers.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Home.xaml.cs">
-      <DependentUpon>Home.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Orders.xaml.cs">
-      <DependentUpon>Orders.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Products.xaml.cs">
-      <DependentUpon>Products.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Reports.xaml.cs">
-      <DependentUpon>Reports.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Settings.xaml.cs">
-      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -305,6 +314,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\search-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\clipboard.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

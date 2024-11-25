@@ -24,5 +24,15 @@ namespace Restaurant.Presentation.View
         {
             InitializeComponent();
         }
+        // hola
+        public void BtnSemanalReport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        public void BtnMonthReport_Click(Object sender, RoutedEventArgs e) 
+        { 
+
+        }
     }
 }

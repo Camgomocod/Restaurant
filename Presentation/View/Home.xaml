@@ -5,8 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Restaurant.Presentation.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="622"
+             Background="Transparent"
+             Style="{StaticResource Page_Style}">
     <Grid>
-            
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource="/Presentation/Resources/Images/Background.jpg"
+                            Stretch="UniformToFill"/>
+            </Border.Background>
+        </Border>
+        <Border Opacity="0.8">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource MeditarreanBlue}" Offset="0"/>
+                    <GradientStop Color="{StaticResource NonBlue}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource CobaltBlue}" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="{StaticResource Turquoise}" Offset="0"/>
+                    <GradientStop Color= "{StaticResource CobaltBlue}" Offset="0.75"/>
+
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel Width="200"
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    Margin="0,50,0,0">
+            <TextBlock Text="Administración"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontSize="26"
+                       FontWeight="Medium"
+                       FontFamily="Monserrat"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="center"
+                       Margin="0,0,0,150"/>
+            <Image Source="/Presentation/Resources/Images/logo.png" 
+               Width="100" 
+               Height="100" 
+               HorizontalAlignment="Center" 
+               Margin="0,0,0,0"/>
+            <TextBlock Text="El Mesón"
+                       Foreground="{StaticResource BrushDarkUmber}"
+                       FontSize="22"
+                       FontWeight="Medium"
+                       FontFamily="Monserrat"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="center"/>
+        </StackPanel>
     </Grid>
 </UserControl>

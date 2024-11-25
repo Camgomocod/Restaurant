@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant.Presentation"
+        xmlns:Menu="clr-namespace:Restaurant.Utilities"
         mc:Ignorable="d"
         Title="AdminForm" 
         Height="600" 
@@ -12,16 +13,226 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent">
+
+    <Window.Resources>
+        <!-- Estilo para los botones del menú -->
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource BrushCobaltBlue}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="5">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <!-- Window Border -->
-        <Border Background="{StaticResource BrushDarkUmber}"
-                CornerRadius="10"/>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource="/Presentation/Resources/Images/homeBackground.jpg"
+                            Stretch="None"/>
+            </Border.Background>
+        </Border>
+        <Border BorderThickness="2"
+                Opacity="0.8"
+                CornerRadius="10">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource MeditarreanBlue}" Offset="0"/>
+                    <GradientStop Color="{StaticResource NonBlue}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource CobaltBlue}" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="{StaticResource Turquoise}" Offset="0"/>
+                    <GradientStop Color= "{StaticResource CobaltBlue}" Offset="0.75"/>
+
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnMinimize"
+                        BorderThickness="0"
+                        Content="-"
+                        Foreground="{StaticResource BrushDarkUmber}"
+                        Grid.Column="1"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Click="BtnMinimize_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                        CornerRadius="0.5"
+                        Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnClose"
+                        Background="{StaticResource BrushCobaltBlue}"
+                        BorderThickness="0"
+                        Content="x"
+                        Foreground="{StaticResource BrushNonBlue}"
+                        Grid.Column="2"
+                        FontSize="10"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Click="BtnClose_Click">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="{StaticResource BrushDarkUmber}"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="18" Height="18"
+                                    CornerRadius="0.5"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/> 
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
         <Grid>
             <!-- Base Grid -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="228"/>
-                <ColumnDefinition Width="622"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+              
+            <Border 
+                    CornerRadius="10,0,0,10"
+                    Grid.Column="0"
+                    BorderBrush="{StaticResource BrushDarkUmber}"
+                    BorderThickness="4">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                        <GradientStop Color="{StaticResource Charcoal}" Offset="0"/>
+                        <GradientStop Color= "{StaticResource MeditarreanBlue}" Offset="0.75"/>
+
+                    </LinearGradientBrush>
+                </Border.Background>
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock Text="Admin" VerticalAlignment="Center" Foreground="FloralWhite" Padding="5,5,0,10" FontSize="15"/>
+                    <Button Style="{StaticResource MenuButtonStyle}" Click="HomeButton_Click" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Presentation/Resources/Images/img_home.png" Width="24" Height="24" Margin="5"/>
+                            <TextBlock Text="Home" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource MenuButtonStyle}" Click="CustomerButton_Click" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Presentation/Resources/Images/img_customer.png" Width="24" Height="24" Margin="5"/>
+                            <TextBlock Text="Clientes" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource MenuButtonStyle}" Click="DishesButton_Click" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Presentation/Resources/Images/img_product.png" Width="24" Height="24" Margin="5"/>
+                            <TextBlock Text="Platos" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource MenuButtonStyle}" Click="ReportButton_Click" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Presentation/Resources/Images/img_order.png" Width="24" Height="24" Margin="5"/>
+                            <TextBlock Text="Reportes" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{StaticResource MenuButtonStyle}" Click="OrderButton_Click" Margin="0,0,0,5">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Presentation/Resources/Images/img_shipment.png" Width="24" Height="24" Margin="5"/>
+                            <TextBlock Text="Pedidos" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
+                        </StackPanel>
+                    </Button>
+					<Button x:Name="btnLogOutUser"
+                        BorderThickness="0"
+                        Content="Cerrar Sesión"
+                        Foreground="#32322C"
+                        Grid.Column="1"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Click="BtnLogOut_Click"
+                        Margin="0,320,0,0">
+						<Button.Style>
+							<Style TargetType="Button">
+								<Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+								<Style.Triggers>
+									<Trigger Property="IsMouseOver" Value="True">
+										<Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+									</Trigger>
+								</Style.Triggers>
+							</Style>
+						</Button.Style>
+
+						<Button.Template>
+							<ControlTemplate TargetType="Button">
+								<Border Width="100" Height="25"
+										CornerRadius="5"
+										Background="{TemplateBinding Background}">
+									<ContentPresenter VerticalAlignment="Center"
+													  HorizontalAlignment="Center"/>
+								</Border>
+							</ControlTemplate>
+						</Button.Template>
+					</Button>
+                </StackPanel>
+            </Border>
+            
+            <ContentControl x:Name="MainContentControl" Grid.Column="1" Margin="10">
+            </ContentControl>
         </Grid>
     </Grid>
 </Window>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Restaurant.Presentation.View
 {
     /// <summary>
-    /// Lógica de interacción para Products.xaml
+    /// Lógica de interacción para Dishes.xaml
     /// </summary>
-    public partial class Products : UserControl
+    public partial class Dishes : UserControl
     {
-        public Products()
+        public Dishes()
         {
             InitializeComponent();
         }

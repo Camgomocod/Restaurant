@@ -1,0 +1,114 @@
+﻿<Window x:Class="Restaurant.Presentation.View.User.Categories"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Restaurant.Presentation.View.User"
+        mc:Ignorable="d"
+        Title="Categories" Height="450" Width="800" Background="{x:Null}"
+        MouseDown="Window_MouseDown">
+    <Grid>
+        <Border CornerRadius="14" BorderThickness="2" Opacity="0.8" Margin="0,0,0,-16">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource MeditarreanBlue}" Offset="0"/>
+                    <GradientStop Color="{StaticResource NonBlue}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource CobaltBlue}" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="{StaticResource Turquoise}" Offset="0"/>
+                    <GradientStop Color= "{StaticResource CobaltBlue}" Offset="0.75"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <!-- Aquí aseguramos que la segunda fila ocupe el espacio restante -->
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Foreground="#32322C" FontSize="12" FontFamily="Monserrat" Grid.Column="0" VerticalAlignment="Center" Margin="10,0,0,0"><Run Language="es-co" Text="QuickBite"/></TextBlock>
+
+                    <Button x:Name="btnMinimize" BorderThickness="0" Content="-" Foreground="{StaticResource BrushDarkUmber}" Grid.Column="1" FontSize="16" FontWeight="Bold" Cursor="Hand" Click="BtnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button x:Name="btnClose" Background="{StaticResource BrushCobaltBlue}" BorderThickness="0" Content="x" Foreground="{StaticResource BrushNonBlue}" Grid.Column="2" FontSize="10" FontWeight="Bold" Cursor="Hand" Click="BtnClose_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="{StaticResource BrushDarkUmber}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <Button x:Name="btnLogin" BorderThickness="0" Content="Cerrar sesión" Foreground="#32322C" FontSize="12" FontWeight="Bold" Cursor="Hand" Click="BtnLogin_Click" Margin="631,3,5,2">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="{StaticResource BrushNonBlue}"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="{StaticResource BrushTurquoise}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+
+                <!-- Usamos Grid en lugar de Canvas para que el ScrollViewer se ajuste correctamente -->
+                <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Grid.Row="1" Margin="10,20,23,23" Height="350">
+                    <Grid Background="#FF6AAFE3">
+                        <ItemsControl ItemsSource="{Binding Categorias}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <!-- Layout de los ítems con 2 columnas -->
+                                    <UniformGrid Columns="2" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="Gray" BorderThickness="1" Margin="10" Width="200" Height="250" Background="White">
+                                        <StackPanel>
+                                            <Image Source="{Binding Imagen}" Height="150" Margin="5" Stretch="UniformToFill" />
+                                            <TextBlock Text="{Binding Nombre}" FontWeight="Bold" FontSize="14" TextAlignment="Center" Margin="5" />
+                                            <TextBlock Text="{Binding Descripcion}" FontSize="12" TextWrapping="Wrap" Margin="5" />
+                                            <Button Content="Seleccionar"
+                                                HorizontalAlignment="Center"
+                                                Margin="5"
+                                                Click="Category_Click" />
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </ScrollViewer>
+                <TextBlock Foreground="#32322C" FontSize="25" FontFamily="Monserrat" Grid.Column="0" VerticalAlignment="Top" Margin="15,25,50,0" Grid.RowSpan="2" FontWeight="Bold" Height="34"><Run Language="es-co" Text="CATEGORIAS"/><LineBreak/><Run Language="es-co"/></TextBlock>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

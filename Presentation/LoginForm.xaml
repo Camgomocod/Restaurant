@@ -133,7 +133,7 @@
                             HorizontalAlignment="Center" 
                             Margin="0,0,0,0"/>
 
-                    <TextBlock Text="QuickBite"
+                    <TextBlock Text="El Mesón"
                                Foreground="{StaticResource BrushDarkUmber}"
                                FontSize="22"
                                FontWeight="Medium"
@@ -156,7 +156,7 @@
                              CaretBrush="{StaticResource BrushDarkUmber}"
                              BorderBrush="{StaticResource BrushDarkUmber}"
                              BorderThickness="0,0,0,3"
-                             Margin="0,5,0,0">
+                             Margin="0,5,0,0" Text="juan@example.com">
                     </TextBox>
 
                     <TextBlock Text="Contraseña"
@@ -175,7 +175,7 @@
                              CaretBrush="{StaticResource BrushDarkUmber}"
                              BorderBrush="{StaticResource BrushDarkUmber}"
                              BorderThickness="0,0,0,3"
-                             Margin="0,5,0,0">
+                             Margin="0,5,0,0" Password="password123">
                     </PasswordBox>
                     <Button x:Name="btnLogin"
                             BorderThickness="0"
