@@ -4,7 +4,6 @@ using System.Windows.Input;
 using Restaurant.DataAccess.Repositories;
 using Restaurant.BusinessLogic.Services.Login;
 using Restaurant.DataAccess.Entities;
-using Restaurant.Presentation.View.User;
 
 namespace Restaurant.Presentation
 {
@@ -21,10 +20,6 @@ namespace Restaurant.Presentation
         {
             InitializeComponent();
             _authService = authService ?? throw new ArgumentNullException(nameof(authService));
-            /*
-            Categories viewCategories = new Categories();
-            viewCategories.Show();
-            this.Close();*/
         }
 
 
@@ -66,9 +61,6 @@ namespace Restaurant.Presentation
                 if (isAuth)
                 {
                     MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Categories viewCategories = new Categories();
-                    viewCategories.Show();
-                    this.Close();
                 }
                 else
                 {
