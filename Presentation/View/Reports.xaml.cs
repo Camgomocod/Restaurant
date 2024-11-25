@@ -16,13 +16,18 @@ using System.Windows.Shapes;
 namespace Restaurant.Presentation.View
 {
     /// <summary>
-    /// Lógica de interacción para Settings.xaml
+    /// Lógica de interacción para Reports.xaml
     /// </summary>
-    public partial class Settings : UserControl
+    public partial class Reports : UserControl
     {
-        public Settings()
+        public Reports()
         {
             InitializeComponent();
+        }
+
+        public void BtnSemanalReport_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -133,7 +133,7 @@
                             HorizontalAlignment="Center" 
                             Margin="0,0,0,0"/>
 
-                    <TextBlock Text="QuickBite"
+                    <TextBlock Text="El Mesón"
                                Foreground="{StaticResource BrushDarkUmber}"
                                FontSize="22"
                                FontWeight="Medium"
