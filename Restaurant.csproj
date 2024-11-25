@@ -115,6 +115,7 @@
     <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Entities\Category.cs" />
+    <Compile Include="DataAccess\Entities\RolType.cs" />
     <Compile Include="DataAccess\Entities\Dish.cs" />
     <Compile Include="DataAccess\Entities\Order.cs" />
     <Compile Include="DataAccess\Entities\Payment.cs" />
@@ -126,9 +127,12 @@
     </Compile>
     <Compile Include="Presentation\View\Orders.xaml.cs">
       <DependentUpon>Orders.xaml</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="Presentation\View\User\Categories.xaml.cs">
       <DependentUpon>Categories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\View\User\Dishes.xaml.cs">
+      <DependentUpon>Dishes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Button.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
@@ -194,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\View\User\Categories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\View\User\Dishes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -297,9 +305,9 @@
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\clipboard.png" />
   </ItemGroup>
-<ItemGroup>
-	<Resource Include="Presentation\Resources\Images\User\Background_app.jpg" />
-</ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Background_app.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\User\Categories\Bebidas.png" />
   </ItemGroup>
