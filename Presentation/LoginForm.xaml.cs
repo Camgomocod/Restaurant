@@ -65,7 +65,21 @@ namespace Restaurant.Presentation
                 bool isAuth = _authService.Authenticate(usuario);
                 if (isAuth)
                 {
-                    MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    string userType = _authService.user_type(usuario);
+                    switch (userType)
+                    {
+                        case "administrador":
+                            var adminForm = new AdminForm();
+                            MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                            adminForm.Show();
+                            break;
+
+                        case "cliente":
+                            Categories viewCategories = new Categories();
+                            MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                            viewCategories.Show();
+                            break;
+                    }
                 }
                 else
                 {
