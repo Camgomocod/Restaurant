@@ -267,7 +267,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BusinessLogic\Services\User\" />
-    <Folder Include="Presentation\Resources\Images\User\Dishes\" />
     <Folder Include="Tests\" />
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +318,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Presentation\Resources\Images\User\Categories\Almuerzo_Ejecutivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Dishes\Carne de cerdo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Dishes\Pasta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Dishes\Ensalada.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Presentation\Resources\Images\User\Dishes\Milanesa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

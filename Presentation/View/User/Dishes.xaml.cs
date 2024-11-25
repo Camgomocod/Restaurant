@@ -40,27 +40,27 @@ namespace Restaurant.Presentation.View.User
             {
                 new Dish
                 {
-                    Nombre = "Almuerzo Ejecutivo",
+                    Nombre = "Carne de cerdo",
                     Descripcion = "Comida balanceada y sofisticada durante su jornada laboral...",
-                    Imagen = "/Presentation/Resources/Images/User/Categories/Almuerzo_infantil.png"
+                    Imagen = "/Presentation/Resources/Images/User/Dishes/Carne de cerdo.png"
                 },
                 new Dish
                 {
                     Nombre = "Almuerzo Infantil",
                     Descripcion = "Porciones adecuadas y opciones deliciosas...",
-                    Imagen = "/Presentation/Resources/Images/User/Categories/Almuerzo_infantil.png"
+                    Imagen = "/Presentation/Resources/Images/User/Dishes/Ensalada.png"
                 },
                 new Dish
                 {
                     Nombre = "Comida Rápida",
                     Descripcion = "Opciones rápidas y deliciosas para disfrutar con amigos...",
-                    Imagen = "/Presentation/Resources/Images/User/Categories/Bebidas.png"
+                    Imagen = "/Presentation/Resources/Images/User/Dishes/Milanesa.png"
                 },
                 new Dish
                 {
                     Nombre = "Bebidas",
                     Descripcion = "Refresca tu experiencia con nuestra variedad de bebidas...",
-                    Imagen = "/Presentation/Resources/Images/User/Categories/Comidas_Rapidas.png"
+                    Imagen = "/Presentation/Resources/Images/User/Dishes/Pasta.png"
                 }
             };
 
