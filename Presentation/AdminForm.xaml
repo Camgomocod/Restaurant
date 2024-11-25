@@ -44,7 +44,7 @@
         <!-- Window Border -->
         <Border>
             <Border.Background>
-                <ImageBrush ImageSource="/Presentation/Resources/Images/homeBackground.jpg"
+                <ImageBrush ImageSource="/Presentation/Resources/Images/background.jpg"
                             Stretch="None"/>
             </Border.Background>
         </Border>
