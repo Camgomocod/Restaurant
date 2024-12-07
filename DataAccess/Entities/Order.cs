@@ -1,13 +1,14 @@
 ﻿using System;
+
 namespace Restaurant.DataAccess.Entities
 {
-    internal class Order
+    public class Order
     {
-        public int IdPedido { get; set; }
-        public int IdUsuario { get; set; }
-        public string MetodoPago { get; set; }
-        public string Estado { get; set; }
-        public double Total { get; set; }
-        public DateTime FechaPedido { get; set; }
+        public int IdOrder { get; set; }
+        public string NameClient { get; set; }
+        public DateTime DateOrder { get; set; }
+        public string PayMethod { get; set; }
+        public string AsyncState { get; set; }
+        public decimal Total { get; set; }
     }
 }

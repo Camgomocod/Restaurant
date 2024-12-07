@@ -107,14 +107,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BusinessLogic\DTOS\PedidoDTO.cs" />
-    <Compile Include="BusinessLogic\DTOS\DetallesPedidoDTO.cs" />
-    <Compile Include="BusinessLogic\DTOS\ReporteMensualDTO.cs" />
-    <Compile Include="BusinessLogic\DTOS\ReporteSemanalDTO.cs" />
-    <Compile Include="BusinessLogic\Interfaces\iAdminService.cs" />
-    <Compile Include="BusinessLogic\Services\Admin\AdminService.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Entities\Category.cs" />
+    <Compile Include="DataAccess\Entities\CustomerPurchases.cs" />
+    <Compile Include="DataAccess\Entities\ReportteMensual.cs" />
     <Compile Include="DataAccess\Entities\RolType.cs" />
     <Compile Include="DataAccess\Entities\Dish.cs" />
     <Compile Include="DataAccess\Entities\Order.cs" />
@@ -124,9 +120,6 @@
     <Compile Include="DataAccess\Repositories\UserRepository.cs" />
     <Compile Include="Presentation\RegisterForm.xaml.cs">
       <DependentUpon>RegisterForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\View\Dishes.xaml.cs">
-      <DependentUpon>Dishes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\View\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
@@ -154,7 +147,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BusinessLogic\Interfaces\IReportService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\CustomerService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\HomeService.cs" />
     <Compile Include="BusinessLogic\Services\Admin\OrdersService.cs" />
@@ -195,10 +187,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Presentation\View\Customers.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Presentation\View\Dishes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

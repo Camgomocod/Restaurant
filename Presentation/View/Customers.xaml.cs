@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.BusinessLogic.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,20 @@ namespace Restaurant.Presentation.View
     public partial class Customers : UserControl
     {
         public float Number = 200;
+        private CustomerService _customerService;
+
         public Customers()
         {
             InitializeComponent();
+            _customerService = new CustomerService();
+            this.DataContext = _customerService; // Asignar el servicio como el DataContext
         }
 
-        public void BtnSearchUser_Click(object sender, RoutedEventArgs e)
+        private void BtnSearchUser_Click(object sender, RoutedEventArgs e)
         {
-
+            var customerService = (CustomerService)DataContext;
+            customerService.BuscarPorTelefono(txtName.Text);
         }
+
     }
 }

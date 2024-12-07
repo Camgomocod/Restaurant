@@ -43,10 +43,6 @@ namespace Restaurant.Presentation
             MainContentControl.Content = new Customers();
         }
 
-        public void DishesButton_Click(Object sender, RoutedEventArgs e)
-        {
-            MainContentControl.Content = new Dishes();
-        }
 
         public void ReportButton_Click(Object sender, RoutedEventArgs e)
         {

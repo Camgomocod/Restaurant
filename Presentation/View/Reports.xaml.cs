@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restaurant.DataAccess.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,14 +26,27 @@ namespace Restaurant.Presentation.View
             InitializeComponent();
         }
         // hola
-        public void BtnSemanalReport_Click(object sender, RoutedEventArgs e)
+        private void BtnSemanalReport_Click(object sender, RoutedEventArgs e)
         {
+            var fechaInicio = initialDate.SelectedDate.Value;
+            var fechaFin = finalDate.SelectedDate.Value;
 
+            var reportData = new AdminRepository().ReporteSemanal(fechaInicio, fechaFin);
+
+            // Asignar el DataTable a tu DataGrid
+            ReporteSemanalGrid.ItemsSource = reportData.DefaultView;
         }
 
-        public void BtnMonthReport_Click(Object sender, RoutedEventArgs e) 
-        { 
+        private void BtnMonthReport_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedMonth = (MesComboBox.SelectedItem as ComboBoxItem).Tag.ToString();
+            var fechaInicio = new DateTime(DateTime.Now.Year, int.Parse(selectedMonth), 1);
+            var fechaFin = fechaInicio.AddMonths(1).AddDays(-1);
 
+            var reportData = new AdminRepository().ReporteMensual(fechaInicio, fechaFin);
+
+            ReporteMensualGrid.ItemsSource = reportData.DefaultView;
         }
+
     }
 }

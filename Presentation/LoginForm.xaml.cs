@@ -67,14 +67,15 @@ namespace Restaurant.Presentation
                         case "administrador":
                             var adminForm = new AdminForm();
                             MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.Close();
                             adminForm.Show();
                             break;
 
                         case "cliente":
                             Categories viewCategories = new Categories();
                             MessageBox.Show($"Bienvenido, {usuario.CorreoElectronico}", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                            viewCategories.Show();
                             this.Close();
+                            viewCategories.Show();
                             break;
                     }
                 }

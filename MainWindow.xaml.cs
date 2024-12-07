@@ -1,4 +1,5 @@
-﻿using Restaurant.DataAccess.Context;
+﻿using Restaurant.BusinessLogic.Services;
+using Restaurant.DataAccess.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,17 @@ namespace Restaurant
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CustomerService customerService;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Crear la instancia de CustomerService
+            customerService = new CustomerService();
+
+            // Asignar el DataContext a la instancia de CustomerService
+            this.DataContext = customerService;
         }
     }
 }

@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="622"
              Style="{StaticResource Page_Style}">
+    
+    <UserControl.DataContext>
+        <vm:CustomerService/>
+        <!-- Vincular el CustomerService al DataContext -->
+    </UserControl.DataContext>
 
     <UserControl.Background>
         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
@@ -105,7 +110,7 @@
                            Fill="{StaticResource BrushCobaltBlue}"
                            Width="320"/>
                 <!--hacer el binding con la variable correspondiente, en lugar del text-->
-                <TextBlock Text="200"
+                <TextBlock Text="{Binding CustomerName}"
                            Foreground="{StaticResource BrushNonBlue}"
                            FontSize="12"
                            VerticalAlignment="Center"
@@ -128,7 +133,7 @@
                            HorizontalAlignment="Left"
                            Fill="{StaticResource BrushCobaltBlue}"
                            Width="320"/>
-                <TextBlock Text="200"
+                <TextBlock Text="{Binding PurchasesCount}"
                            Foreground="{StaticResource BrushNonBlue}"
                            FontSize="12"
                            VerticalAlignment="Center"

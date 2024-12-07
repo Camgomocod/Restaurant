@@ -180,12 +180,7 @@
                             <TextBlock Text="Clientes" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
                         </StackPanel>
                     </Button>
-                    <Button Style="{StaticResource MenuButtonStyle}" Click="DishesButton_Click" Margin="0,0,0,5">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/Presentation/Resources/Images/img_product.png" Width="24" Height="24" Margin="5"/>
-                            <TextBlock Text="Platos" VerticalAlignment="Center" Foreground="FloralWhite" Padding="20,0,0,0"/>
-                        </StackPanel>
-                    </Button>
+                    
                     <Button Style="{StaticResource MenuButtonStyle}" Click="ReportButton_Click" Margin="0,0,0,5">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/Presentation/Resources/Images/img_order.png" Width="24" Height="24" Margin="5"/>
@@ -233,7 +228,7 @@
                 </StackPanel>
             </Border>
             
-            <ContentControl x:Name="MainContentControl" Grid.Column="1" Margin="10">
+            <ContentControl x:Name="MainContentControl" Grid.Column="1" Margin="0,30,0,0">
             </ContentControl>
         </Grid>
     </Grid>

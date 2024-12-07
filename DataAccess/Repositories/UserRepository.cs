@@ -81,37 +81,6 @@ namespace Restaurant.DataAccess.Repositories
                 conn.cerrarConexion();
             }
         }
-        public void CrearPedido(Order pedido)
-        {
-            try
-            {
-                conn.abrirConexion();
-
-                using (var command = conn.GetConnection().CreateCommand())
-                {
-                    command.CommandText = "pkg_Usuarios.crear_pedido";
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    command.Parameters.Add("p_id_usuario", OracleDbType.Int32).Value = pedido.IdUsuario;
-                    command.Parameters.Add("p_metodo_pago", OracleDbType.Varchar2).Value = pedido.MetodoPago;
-                    command.Parameters.Add("p_estado", OracleDbType.Varchar2).Value = pedido.Estado;
-                    command.Parameters.Add("p_total", OracleDbType.Decimal).Value = pedido.Total;
-                    command.Parameters.Add("p_fecha_pedido", OracleDbType.Date).Value = pedido.FechaPedido;
-
-                    command.ExecuteNonQuery();
-                }
-            }
-            catch (OracleException ex)
-            {
-                if (ex.Number == 20006)
-                    throw new Exception("El usuario especificado no existe.", ex);
-                throw new Exception($"Error al crear el pedido: {ex.Message}", ex);
-            }
-            finally
-            {
-                conn.cerrarConexion();
-            }
-        }
 
         public void ValidarCredenciales(User user)
         {
